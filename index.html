@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>My First Website!</title>
+    <link rel="stylesheet" href="./styles.css" type="text/css" />
+</head>
+<body>
+    <nav>
+        <div id="nav-container">
+            <a href="index.html">
+                <img src="" />
+            </a>
+            <div id="nav-right">
+                <a class="nav-link" href="index.html">Home</a>
+                <a class="nav-link" href="about.html">About Us</a>
+                <a class="nav-link" href="contact.html">Contact Us</a>
+            </div>
+        </div>
+    </nav>
+
+    <button onclick="removeOne()">Remove</button>
+    <p id="counter">0</p>
+    <button onclick="addOne()">Add</button>
+
+
+    <ul id="fruits">
+
+    </ul>
+    <p id="fullname"></p>
+    <p id="age"></p>
+</body>
+<script src="./main.js" type="text/javascript"></script>
+<script type="application/javascript">
+    // Override the CSS of the border color in navigation to red
+    // Get elements by tag name returns an array of tags. the [0] picks the first item from the array.
+    // The first item in an array is 0 NOT 1!
+    document.getElementsByTagName('nav')[0].style.borderBottomColor = "red";
+
+    // Array Example. We are going to turn the unordered list into a list of fruits;
+    // Define the fruits in our list
+    let fruitsarray = ["Apple", "Oranges", "Bananas", "Pinapples"]
+
+    // Create a new string to list each item
+    let list = ""
+
+    // Starting at index of 0 ("Apple"), we are going to add a list item as text to the list variable.
+    // We are incrementing the array by 1. After 0, we will get the item at index = 1, etc. until we have reached
+    // the end of the fruits array;
+    for(let i=0; i < fruitsarray.length; i++){
+        list += `<li>${fruitsarray[i]}</li>`
+    }
+
+    // After all fruits array items have been added to the list, we will insert the html where the id = fruits
+    // In this case this is the unordered list;
+    document.getElementById("fruits").innerHTML = list;
+
+    // Uncomment to turn the body red. This is an example of calling a function from another file (main.js)
+    // turnBodyRed()
+
+    // Uncomment to sort the fruits array into alphabetical order, then display them back in the list
+    // fruitsarray.sort()
+    // let newlist = ""
+    // for(let i=0; i < fruitsarray.length; i++){
+    //     newlist += `<li>${fruitsarray[i]}</li>`
+    // }
+    // document.getElementById("fruits").innerHTML = newlist;
+
+
+
+    // Uncomment to reverse the fruits array order, then display them back in the list
+    // This will put pineapple first instead of apple
+    // fruitsarray.reverse()
+    // let reversedlist = ""
+    // for(let i=0; i < fruitsarray.length; i++){
+    //     reversedlist += `<li>${fruitsarray[i]}</li>`
+    // }
+    // document.getElementById("fruits").innerHTML = reversedlist;
+
+
+    // Playing with Objects.
+    let profile = {
+        firstname: "John",
+        lastname: "Doe",
+        age: 30,
+        fullName: function() {
+            return this.firstname + " " + this.lastname
+        },
+        getage: function() {
+            return this.age
+        }
+    }
+
+    // This is executing synchronously. Age will wait until full name is done.
+    document.getElementById("fullname").innerHTML = profile.fullName()
+    document.getElementById("age").innerHTML = profile.getage()
+
+
+    // To do this asynchronously (at the same time) we can use promises.
+    // Comment out lines 94-95 and uncomment the following
+    //
+    // function changeFullName() {
+    //     return new Promise(resolve => {
+    //         document.getElementById("fullname").innerHTML = profile.fullName()
+    //         resolve(profile.fullName())
+    //     })
+    // }
+    // function changeAge() {
+    //     return new Promise(resolve => {
+    //         document.getElementById("age").innerHTML = profile.getage()
+    //         resolve(profile.getage())
+    //     })
+    // }
+    // var setFullName = changeFullName()
+    // var setAge = changeAge()
+    //
+    // Promise.all([setFullName, setAge])
+    //     .then(values => {
+    //         console.log(values[0])
+    //         console.log(values[1])
+    //     })
+</script>
+</html>

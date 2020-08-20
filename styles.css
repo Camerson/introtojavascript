@@ -1,0 +1,59 @@
+html, body {
+    overflow-x:hidden;
+    margin:0;
+    padding:0;
+}
+h1, h2, h3, h4, h5, h6 {
+    font-weight:bold;
+}
+nav {
+    height: 70px;
+    background:white;
+    display:flex;
+    align-items:center;
+    align-content:center;
+    border-bottom: 1px solid gray;
+}
+/* This is a comment */
+
+/* I can comment code too! Uncomment the code below to turn the navigation black */
+/*nav {*/
+/*    background: black !important;*/
+/*}*/
+
+#nav-container {
+    height: 95%;
+    width: 95%;
+    margin: auto;
+    display:flex;
+    align-items:center;
+    align-content:center;
+    justify-content:space-between;
+}
+#nav-right {
+    display:flex;
+    justify-content:flex-end;
+}
+.nav-link {
+    color: black;
+    text-decoration:none;
+    margin-right: 15px;
+}
+.nav-link:hover {
+    color: red;
+}
+table {
+    border-collapse:collapse;
+}
+tr, th, td {
+    border: 1px solid green;
+}
+th, td {
+    padding: 10px;
+}
+tr {
+    opacity: 1;
+}
+tr:hover {
+    opacity:0;
+}
